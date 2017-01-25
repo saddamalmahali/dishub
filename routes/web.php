@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::get('/tentang', 'HomeController@tentang');
 Route::get('/home', 'HomeController@index');
 Route::get('/pegawai', 'PegawaiController@index');
 Route::get('/tambah_pegawai', 'PegawaiController@tambah_pegawai_form');

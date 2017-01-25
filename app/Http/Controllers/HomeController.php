@@ -83,4 +83,9 @@ class HomeController extends Controller
         
         return $persen;
     }
+
+    public function tentang()
+    {
+        return view('tentang');
+    }
 }
