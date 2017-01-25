@@ -7,6 +7,8 @@ use App\Pegawai;
 use App\PangkatGolongan;
 use App\PangkatPegawai;
 use App\Pensiun;
+use App\PerpanjangKontrakTkk;
+use App\PerpanjangKontrakTks;
 
 class PegawaiController extends Controller
 {
@@ -267,5 +269,162 @@ class PegawaiController extends Controller
     {
         $pegawai = Pegawai::find($id);
         return view('pegawai.view', ['pegawai'=>$pegawai]);
+    }
+
+
+    public function index_perpanjang_tks()
+    {
+        $pegawai = new PerpanjangKontrakTks();
+        $pegawai = $pegawai->paginate('9');
+        return view('pegawai.index_perpanjang_tks', ['data_tks'=>$pegawai]);
+    }
+
+    public function tambah_perpanjang_tks()
+    {
+        $pegawai = $pegawai = Pegawai::where('no_sp_tkk_pertama', '=', '')->where('status', '=','non_pns')->get();
+
+        return view('pegawai.tambah_perpanjang_tks', ['data_pegawai'=>$pegawai]);
+    }
+
+    public function simpan_perpanjang_tks(Request $request)
+    {
+        $this->validate($request, [
+            'id_pegawai'=>'required',
+            'no_sp'=>'required',
+            'tanggal_sp'=>'required',
+            'tmt'=>'required',
+        ]);
+
+        $tks = new PerpanjangKontrakTks();
+        $tks->id_pegawai = $request->input('id_pegawai');
+        $tks->no_sp = $request->input('no_sp');
+        $tks->tanggal_sp = date('Y-m-d', strtotime($request->input('tanggal_sp')));
+        $tks->tmt = date('Y-m-d', strtotime($request->input('tmt')));
+
+        if($tks->save())
+        {
+            return redirect('/kepegawaian/perpanjang_tks');
+        }
+    }
+
+    public function update_perpanjang_tks($id)
+    {
+        $tks = PerpanjangKontrakTks::find($id);
+        
+        $pegawai = $pegawai = Pegawai::where('no_sp_tkk_pertama', '=', '')->where('status', '=','non_pns')->get();
+        return view('pegawai.update_perpanjang_tks', ['tks'=>$tks, 'data_pegawai'=>$pegawai]);
+    }
+    public function simpan_update_perpanjang_tks(Request $request)
+    {
+        $this->validate($request, [
+            'id_pegawai'=>'required',
+            'no_sp'=>'required',
+            'tanggal_sp'=>'required',
+            'tmt'=>'required',
+        ]);
+
+        $tks = PerpanjangKontrakTks::find($request->input('id'));
+        $tks->id_pegawai = $request->input('id_pegawai');
+        $tks->no_sp = $request->input('no_sp');
+        $tks->tanggal_sp = date('Y-m-d', strtotime($request->input('tanggal_sp')));
+        $tks->tmt = date('Y-m-d', strtotime($request->input('tmt')));
+
+        if($tks->save())
+        {
+            return redirect('/kepegawaian/perpanjang_tks');
+        }
+    }
+
+    public function hapus_perpanjang_tks(Request $request)
+    {
+        $tks = PerpanjangKontrakTks::find($request->input('id'));
+
+        if($tks->delete()){
+            return json_encode('sukses');
+        }
+    }
+
+    //Menu Perpanjangan TKK
+
+    public function index_perpanjang_tkk()
+    {
+        $pegawai = new PerpanjangKontrakTkk();
+        $pegawai = $pegawai->paginate('9');
+        return view('pegawai.index_perpanjang_tkk', ['data_tkk'=>$pegawai]);
+    }
+
+    public function tambah_perpanjang_tkk()
+    {
+        $pegawai = Pegawai::where('no_sp_tkk_pertama', '!=', '')->where('status', '=', 'non_pns')->get();
+
+        return view('pegawai.tambah_perpanjang_tkk', ['data_pegawai'=>$pegawai]);
+    }
+
+    public function simpan_perpanjang_tkk(Request $request)
+    {
+        $this->validate($request, [
+            'id_pegawai'=>'required',
+            'no_sp_tkk'=>'required',
+            'tanggal_sp_tkk'=>'required',
+            'no_sp'=>'required',
+            'tanggal_sp'=>'required',
+            'tmt'=>'required',
+        ]);
+
+        $tks = new PerpanjangKontrakTkk();
+        $tks->id_pegawai = $request->input('id_pegawai');
+        $tks->no_sp_tkk = $request->input('no_sp_tkk');
+        $tks->tanggal_sp_tkk = date('Y-m-d', strtotime($request->input('tanggal_sp_tkk')));
+        $tks->no_sp = $request->input('no_sp');
+        $tks->tanggal_sp = date('Y-m-d', strtotime($request->input('tanggal_sp')));
+        $tks->tmt = date('Y-m-d', strtotime($request->input('tmt')));
+
+        if($tks->save())
+        {
+            return redirect('/kepegawaian/perpanjang_tkk');
+        }
+    }
+
+    public function update_perpanjang_tkk($id)
+    {
+        $tkk = PerpanjangKontrakTkk::find($id);
+        
+        $pegawai = Pegawai::where('no_sp_tkk_pertama', '!=', '')->where('status', '=', 'non_pns')->get();
+        return view('pegawai.update_perpanjang_tkk', ['tkk'=>$tkk, 'data_pegawai'=>$pegawai]);
+    }
+    public function simpan_update_perpanjang_tkk(Request $request)
+    {
+        $this->validate($request, [
+            'id_pegawai'=>'required',
+            'no_sp_tkk'=>'required',
+            'tanggal_sp_tkk'=>'required',
+            'no_sp'=>'required',
+            'tanggal_sp'=>'required',
+            'tmt'=>'required',
+        ]);
+
+        //return json_encode($request->all());
+
+        $tkk = PerpanjangKontrakTkk::find($request->input('id'));
+        $tkk->id_pegawai = $request->input('id_pegawai');
+        $tkk->no_sp_tkk = $request->input('no_sp_tkk');
+        $tkk->tanggal_sp_tkk = date('Y-m-d', strtotime($request->input('tanggal_sp_tkk')));
+        $tkk->no_sp = $request->input('no_sp');
+        $tkk->tanggal_sp = date('Y-m-d', strtotime($request->input('tanggal_sp')));
+        $tkk->tmt = date('Y-m-d', strtotime($request->input('tmt')));
+
+        if($tkk->save())
+        {
+            return redirect('/kepegawaian/perpanjang_tkk');
+        }
+    }
+
+    public function hapus_perpanjang_tkk(Request $request)
+    {
+        $tkk = PerpanjangKontrakTkk::find($request->input('id'));
+
+        if($tkk->delete()){
+            return json_encode('sukses');
+        }
     }
 }

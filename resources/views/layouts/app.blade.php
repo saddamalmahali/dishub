@@ -66,6 +66,9 @@
                                     
                                         <li><a href="{{ url('/kepegawaian/pangkat_golongan/index') }}"><i class='fa fa-arrows-v'></i>&nbsp; Pangkat & Golongan</a></li>
                                         <li><a href="{{ url('/pensiun') }}"><i class='fa fa-clock-o'></i>&nbsp; Pensiun</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="{{url('/kepegawaian/perpanjang_tks')}}"><i class='fa fa-line-chart'></i>&nbsp;Perpanjang Masa Kerja TKS</a></li>
+                                        <li><a href="{{url('/kepegawaian/perpanjang_tkk')}}"><i class='fa fa-check-square-o'></i>&nbsp;Perpanjang Kontrak TKK</a></li>
 
                                 </ul>
                              </li>
@@ -75,7 +78,7 @@
                                     
                                         <li><a href="{{ url('/pangkat/index') }}"><i class='fa fa-child'></i>&nbsp; Master Golongan</a></li>
                                         <li><a href="{{ url('/pegawai') }}"><i class='fa fa-users'></i>&nbsp; Pegawai</a></li>
-                                         <li><a href="{{ url('/riwayat_pendidikan/index') }}"><i class='fa fa-address-card'></i>&nbsp; Riwayat Pendidikan (PNS)</a></li>
+                                        <li><a href="{{ url('/riwayat_pendidikan/index') }}"><i class='fa fa-address-card'></i>&nbsp; Riwayat Pendidikan (PNS)</a></li>
 
                                 </ul>
                              </li>
@@ -86,6 +89,16 @@
                                         <li><a href="{{ url('/laporan/tkk') }}"><i class='fa fa-user-circle'></i>&nbsp; TKK</a></li>
                                         <li><a href="{{ url('/laporan/tks') }}"><i class='fa fa-users'></i>&nbsp; TKS</a></li>
                                         <li><a href="{{ url('/laporan/pns') }}"><i class='fa fa-child'></i>&nbsp; PNS</a></li>
+
+                                </ul>
+                             </li>
+                             <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class='fa fa-print'></i>&nbsp; Cetak Data Pegawai <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    
+                                        <li><a href="{{ url('/laporan/tkk') }}"><i class='fa fa-user-circle'></i>&nbsp; Normatif TKK</a></li>
+                                        <li><a href="{{ url('/laporan/tks') }}"><i class='fa fa-users'></i>&nbsp; Normatif TKS</a></li>
+                                        <li><a href="{{ url('/laporan/pns') }}"><i class='fa fa-child'></i>&nbsp; Normatif PNS</a></li>
 
                                 </ul>
                              </li>

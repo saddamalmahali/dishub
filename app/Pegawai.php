@@ -29,4 +29,14 @@ class Pegawai extends Model
     {
         return $this->hasOne('App\Pensiun', 'id_pegawai', 'id');
     }
+
+    public function perpanjangan_tkk()
+    {
+        return $this->hasOne('App\PerpanjangKontrakTkk', 'id_pegawai', 'id');
+    }
+
+    public function perpanjangan_tks()
+    {
+        return $this->hasOne('App\PerpanjangKontrakTks', 'id_pegawai', 'id');
+    }
 }

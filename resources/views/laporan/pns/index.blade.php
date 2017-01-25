@@ -9,7 +9,10 @@
                         <h2 class='panel-title'>Daftar Nominatif Pegawai PNS</h2>
                     </div>
                     <div class="panel-body">
+                        @include('laporan.header')
+                        <center><h4>DAFTAR NOMINATIF PEGAWAI PNS</h4></center>
                         <table class='table table-hover table-bordered' style="font-size:8px;">
+                            <em>Data Pertanggal : {{date('d-m-Y')}}</em>
                             <thead >
                                 <tr>
                                     <th rowspan="2" style="text-align:center; width:5%; vertical-align:middle;">No</th>
@@ -92,17 +95,13 @@
                                     
                                     ?>
                                 @empty
-                                    
+                                    <tr>
+                                        <td colspan="12" align="center">Tidak Ada Data</td>
+                                    </tr>
                                 @endforelse
                             </tbody>
                         </table>
-                        <div class='panel-footer'>
-                            <div class='row'>
-                                <div class="pull-right" style="margin-right:20px">
-                                <a class='btn btn-success btn-sm'>PRINT</a>
-                                </div>
-                            </div>
-                        </div>
+                        <div style="text-align:center;">{{$data_pns->links()}}</div>
                     </div>
                 </div>
             </div>

@@ -47,6 +47,22 @@ Route::get('/kepegawaian/pangkat_golongan/edit/{id}', 'PegawaiController@edit_pa
 Route::post('/kepegawaian/pangkat_golongan/edit', 'PegawaiController@save_pangkat_golongan');
 Route::post('/kepegawaian/pangkat_golongan/hapus', 'PegawaiController@hapus_pangkat_golongan');
 
+//Menu TKS
+Route::get('/kepegawaian/perpanjang_tks', 'PegawaiController@index_perpanjang_tks');
+Route::get('/kepegawaian/tambah_perpanjang_tks', 'PegawaiController@tambah_perpanjang_tks');
+Route::get('/kepegawaian/simpan_perpanjang_tks', 'PegawaiController@simpan_perpanjang_tks');
+Route::post('/kepegawaian/update_perpanjang_tks', 'PegawaiController@simpan_update_perpanjang_tks');
+Route::get('/kepegawaian/update_perpanjang_tks/{id}', 'PegawaiController@update_perpanjang_tks');
+Route::post('/kepegawaian/hapus_perpanjangan', 'PegawaiController@hapus_perpanjang_tks');
+
+//Menu TKK
+Route::get('/kepegawaian/perpanjang_tkk', 'PegawaiController@index_perpanjang_tkk');
+Route::get('/kepegawaian/tambah_perpanjang_tkk', 'PegawaiController@tambah_perpanjang_tkk');
+Route::get('/kepegawaian/simpan_perpanjang_tkk', 'PegawaiController@simpan_perpanjang_tkk');
+Route::post('/kepegawaian/update_perpanjang_tkk', 'PegawaiController@simpan_update_perpanjang_tkk');
+Route::get('/kepegawaian/update_perpanjang_tkk/{id}', 'PegawaiController@update_perpanjang_tkk');
+Route::post('/kepegawaian/hapus_perpanjangan_tkk', 'PegawaiController@hapus_perpanjang_tkk');
+
 //Menu Riwayat Pendidikan
 Route::get('/riwayat_pendidikan/index', 'RiwayatPendidikanController@index');
 Route::get('/riwayat_pendidikan/tambah', 'RiwayatPendidikanController@tambah');
