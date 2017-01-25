@@ -36,7 +36,8 @@
                                     <td align="center">{{$pegawai->tempat_lahir.', '.date('d-m-Y',strtotime($pegawai->tanggal_lahir))}}</td>
                                     <td align="center">{{$pegawai->status=='pns'?"PNS" : "NON PNS"}}</td>
                                     <td align="center">
-                                        <a class='btn btn-primary btn-xs' href='{{url("update_pegawai")."/".$pegawai->id}}'><i class='fa fa-pencil'></i></a>
+                                        <a class='btn btn-primary btn-xs' href='{{url("/view_pegawai")."/".$pegawai->id}}'><i class='fa fa-search'></i></a>
+                                        <a class='btn btn-warning btn-xs' href='{{url("update_pegawai")."/".$pegawai->id}}'><i class='fa fa-pencil'></i></a>
                                         <a class='btn btn-danger btn-xs btn-hapus-pegawai' id='{{$pegawai->id}}'><i class='fa fa-trash'></i></a>
                                     </td>
                                 </tr>

@@ -24,6 +24,7 @@ Route::post('/tambah_pegawai', 'PegawaiController@tambah_pegawai');
 Route::get('/update_pegawai/{id}', 'PegawaiCOntroller@update_pegawai');
 Route::post('/update_pegawai', 'PegawaiController@save_pegawai');
 Route::post('/hapus_pegawai', 'PegawaiController@hapus_pegawai');
+Route::get('/view_pegawai/{id}', 'PegawaiController@view_pegawai');
 
 //Menu Pangkat dan Golongan
 Route::get('/pangkat/index', 'PegawaiController@index_pangkat');
@@ -46,7 +47,6 @@ Route::get('/kepegawaian/pangkat_golongan/edit/{id}', 'PegawaiController@edit_pa
 Route::post('/kepegawaian/pangkat_golongan/edit', 'PegawaiController@save_pangkat_golongan');
 Route::post('/kepegawaian/pangkat_golongan/hapus', 'PegawaiController@hapus_pangkat_golongan');
 
-
 //Menu Riwayat Pendidikan
 Route::get('/riwayat_pendidikan/index', 'RiwayatPendidikanController@index');
 Route::get('/riwayat_pendidikan/tambah', 'RiwayatPendidikanController@tambah');
@@ -58,4 +58,3 @@ Route::get('/pensiun/tambah', 'PegawaiController@tambah_pensiun');
 Route::post('/pensiun/tambah', 'PegawaiController@save_pensiun');
 Route::get('/pensiun/edit/{id}', 'PegawaiController@edit_pensiun');
 Route::post('/pensiun/hapus', 'PegawaiController@hapus_pensiun');
-

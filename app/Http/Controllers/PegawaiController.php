@@ -262,4 +262,10 @@ class PegawaiController extends Controller
             return redirect('/pensiun');
         }
     }
+
+    public function view_pegawai($id)
+    {
+        $pegawai = Pegawai::find($id);
+        return view('pegawai.view', ['pegawai'=>$pegawai]);
+    }
 }
