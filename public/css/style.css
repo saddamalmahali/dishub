@@ -1,0 +1,13 @@
+#footer-logo{
+    position:fixed;
+    right:0;
+    bottom:0;
+    padding: 35px;
+    margin:0;
+    width:11%;
+    height:10%;
+    background:url('../img/garut.png') no-repeat;
+    background-size:60%;
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
