@@ -6,7 +6,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">Tentang Aplikasi</h3>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" >
                     <h3>Tim Pembuatan Aplikasi</h3>
                     <table class="table">
                         <tr>
@@ -31,7 +31,7 @@
                         </tr>
                     </table>
 
-                    
+
                     <table class="table">
                         <tr>
                             <th>Nama</th>
@@ -55,7 +55,7 @@
                         </tr>
                     </table>
 
-                    
+
                     <table class="table">
                         <tr>
                             <th>Nama</th>
@@ -106,6 +106,11 @@
                             <td>-</td>
                         </tr>
                     </table>
+
+                    <br />
+                    <div class="col-md-12 text-center">
+                      <h3>Sekolah Tinggi Teknologi Garut <br /> Teknik Informatika (S1) <br /> <small>Alamat : Jl. Mayor Syamsu No. 1 Jayaraga, Tarogong Kidul - Garut (44151)</small></h3>
+                    </div>
                 </div>
             </div>
         </div>
